@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <input type="search" id="busca" aria-label="Search" class="form-control mr-sm-2" placeholder="Buscar por Nombre"
+  name="searchItem" #searchInput [(ngModel)]="searchItem">
+  <p>asdasdfasdfasd</p>
+  <p>sgsdfgsdfgsdfgsdfgsdg</p>
+</div>
+
+<div id="main" (scroll)="onScroll($event)">
+  <table>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>Precio</td>
+      <td>Coef</td>
+    </tr>
+    <tr *ngFor="let item of productos">
+      <td style="color:brown">{{item.fullnameM}}</td>
+      <td>{{item.fullname}}</td>
+      <td>
+        <input type="text">
+      </td>
+      <td>
+        <input type="text">
+      </td>
+    </tr>
+  </table>
+</div>

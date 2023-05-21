@@ -1,0 +1,32 @@
+<div class="container-fluid navbar-dark bg-primary">
+  <app-notify-btn></app-notify-btn>  
+  <app-signin-btn
+    (newLoginEvent)="setLoginEvent($event)"
+  ></app-signin-btn>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <div>
+        <img width="32" alt="Brand Logo" src="favicon.ico" />
+        <a class="navbar-brand" routerLink="/" (click)='isMenuCollapsed = true'>Firulais</a>
+        <a class="navbar-brand" href="https://wa.me/+5493624683656" (click)='isMenuCollapsed = true'> <i class="fab fa-whatsapp"></i> +54 9 (362) 468-3656 </a>
+      </div>
+      <div class="d-flex">
+        <button
+          class="navbar-toggler align-self-center"
+          type="button"
+          (click)='isMenuCollapsed = !isMenuCollapsed'
+          >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <ul ngbNav [activeId]="route.fragment | async" class="navbar-nav">
+          <li [ngbNavItem]="menu.link" *ngFor="let menu of usrMenu">
+            <a ngbNavLink *ngIf="(menu.link && !menu.fragment)" [hidden]='menu.hidden || false' [routerLink]="menu.link" routerLinkActive="active" [innerHTML]="menu.title" (click)="isMenuCollapsed=true"></a>
+            <a ngbNavLink *ngIf="(menu.link && menu.fragment)" [hidden]='menu.hidden || false' [routerLink]="menu.link" [fragment]="menu.fragment" routerLinkActive="active" [innerHTML]="menu.title"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

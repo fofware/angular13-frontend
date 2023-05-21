@@ -1,0 +1,32 @@
+<title>Example</title>
+<body>
+  <!--header>Header</header-->
+  <div id="main">
+    <article >
+      <div class="enca">
+        Info Selected
+      </div>
+      <div class="lista">
+        <app-whatsapp-msgs
+          [chat]="selectedChat"
+        >
+        </app-whatsapp-msgs>
+      </div>
+    </article>
+    <nav>
+      <div class="enca">
+        <h2>Chats</h2>
+      </div>
+      <div class="lista" id="msjs">
+        <app-wappchats-list
+          *ngFor="let item of chats; index as i"
+          [chat]="item"
+          (selectedChat)="setSelectedChat($event,i)"
+        >
+        </app-wappchats-list>
+      </div>
+    </nav>
+    <!--aside>Aside</aside-->
+  </div>
+  <!--footer>Footer</footer-->
+</body>
